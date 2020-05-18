@@ -13,8 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
                 </div>
             </div>
         </div>
@@ -23,24 +21,22 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <div class="content">
+                            <div>
+                                <form action="/tour" method="POST">
+                                    <label>Participants quantity:</label><input name="tour['participants_qty']"><br>
+                                    <label>Game bank:</label><input name="tour['Participants']">
+                                    <div>
+                                        <button type="submit">Start the tour</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     @else
                         <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div>
-                    <form action="/server" method="POST">
-                        <button type="submit">Start the tour</button>
-                    </form>
-                </div>
-            </div>
         </div>
     </div>
 </div>

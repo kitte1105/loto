@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/home', 301);
 
 Route::get('/server', 'ServerController@index')->name('server');
+Route::post('/tour', 'ServerController@tour')->name('tour');
+Route::get('/statistics', 'ServerController@statistics')->name('statistics');
 Route::get('/client', 'ClientController@index')->name('client');
 
 Auth::routes();

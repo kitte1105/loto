@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Welcome to Russian Loto</div>
+                <div class="card-header">Statistics:</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -16,18 +16,18 @@
                 </div>
             </div>
         </div>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div>
-                    @guest
-                        <a href="/client">Get the ticket</a>
-                    @else
-                        <a href="/server">Start the tour</a>
-                        <a href="/statistics">View the statistics</a>
-                    @endguest
 
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <div class="content">
+                        </div>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+                    @endauth
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>
